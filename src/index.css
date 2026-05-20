@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: #1e3a8a;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.career-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.career-card h2 {
+  color: #2563eb;
+}
+
+.score {
+  font-weight: bold;
+  color: green;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 30px;
+}
+
