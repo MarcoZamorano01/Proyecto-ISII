@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/github/" />
+  <Folder Name="/github/workflows/">
+    <File Path="dotnet.yml" />
+  </Folder>
+  <Project Path="VocationalGuidance.API/VocationalGuidance.API.csproj" />
+  <Project Path="VocationalGuidance.Tests/VocationalGuidance.Tests.csproj" Id="379ced05-45c4-4d75-98ab-b946181725a9" />
+</Solution>

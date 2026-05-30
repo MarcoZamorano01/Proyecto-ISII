@@ -1,10 +1,16 @@
-import Home from "./pages/Home";
+import AppRoutes from "./routes/AppRoutes";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
+
   return (
-    <div>
-      <Home />
-    </div>
+
+    <AppProvider>
+
+      <AppRoutes />
+
+    </AppProvider>
+
   );
 }
 

@@ -6,14 +6,16 @@ import RecommendationList
 import LoadingSpinner
   from "../components/LoadingSpinner";
 
+import VocationalForm
+  from "../components/VocationalForm";
+
 import { getCareerRecommendations }
   from "../services/aiService";
 
 import { APP_NAME }
   from "../utils/constants";
 
-  import VocationalForm
-  from "../components/VocationalForm";
+
 
 
 function Home() {
@@ -41,12 +43,12 @@ function Home() {
   return (
     <div className="container">
 
-       <h1 className="title">
+      <h1 className="title">
         Plataforma Vocacional IA
       </h1>
       <VocationalForm />
-    <br />
-    <br />
+      <br />
+      <br />
       {
         loading
           ? <LoadingSpinner />
