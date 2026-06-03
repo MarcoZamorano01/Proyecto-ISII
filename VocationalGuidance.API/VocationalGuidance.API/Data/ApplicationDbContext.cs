@@ -12,9 +12,21 @@ public class ApplicationDbContext
     {
     }
 
-    public DbSet<User> Users => Set<User>();
+    public DbSet<User> Users
+    {
+        get;
+        set;
+    }
 
-    public DbSet<Question> Questions => Set<Question>();
+    public DbSet<Question> Questions
+    {
+        get;
+        set;
+    }
 
-    public DbSet<TestResult> Results => Set<TestResult>();
+    public DbSet<TestResult> Results
+    {
+        get;
+        set;
+    }
 }

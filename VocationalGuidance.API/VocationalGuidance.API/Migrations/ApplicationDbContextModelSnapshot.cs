@@ -67,6 +67,8 @@ namespace VocationalGuidance.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Results");
                 });
 
@@ -97,6 +99,17 @@ namespace VocationalGuidance.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("VocationalGuidance.API.Entities.TestResult", b =>
+                {
+                    b.HasOne("VocationalGuidance.API.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

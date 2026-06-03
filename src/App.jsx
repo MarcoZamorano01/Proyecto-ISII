@@ -1,15 +1,20 @@
-import AppRoutes from "./routes/AppRoutes";
-import { AppProvider } from "./context/AppContext";
+import AppRoutes
+from "./routes/AppRoutes";
+
+import {
+  AuthProvider
+}
+from "./context/AuthContext";
 
 function App() {
 
   return (
 
-    <AppProvider>
+    <AuthProvider>
 
       <AppRoutes />
 
-    </AppProvider>
+    </AuthProvider>
 
   );
 }

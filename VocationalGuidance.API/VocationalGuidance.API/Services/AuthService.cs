@@ -41,8 +41,7 @@ public class AuthService
         await _repository.AddAsync(user);
     }
 
-    public async Task<string?> Login(
-        LoginDto dto)
+    public async Task<LoginResponseDto?> Login(LoginDto dto)
     {
         var user =
             await _repository
@@ -59,7 +58,13 @@ public class AuthService
         if (!valid)
             return null;
 
-        return GenerateToken(user);
+        return new LoginResponseDto
+        {
+            Token = GenerateToken(user),
+            Role = user.Role,
+            Name = user.Name,
+            UserId = user.Id
+        };
     }
 
     private string GenerateToken(

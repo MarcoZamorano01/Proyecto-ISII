@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Security.Claims;
 using VocationalGuidance.API.Entities;
 using VocationalGuidance.API.Repositories;
 
@@ -20,7 +20,7 @@ public class ResultsController
         _repository = repository;
     }
 
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -45,8 +45,18 @@ public class ResultsController
     [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create(
-        TestResult result)
+    TestResult result)
     {
+        var userIdClaim =
+            User.FindFirst(
+                ClaimTypes.NameIdentifier);
+
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        result.UserId =
+            int.Parse(userIdClaim.Value);
+
         result.CreatedAt =
             DateTime.UtcNow;
 
@@ -64,5 +74,26 @@ public class ResultsController
         await _repository.DeleteAsync(id);
 
         return NoContent();
+    }
+
+    [Authorize]
+    [HttpGet("my-results")]
+    public async Task<IActionResult> GetMyResults()
+    {
+        var userIdClaim =
+            User.FindFirst(
+                ClaimTypes.NameIdentifier);
+
+        if (userIdClaim == null)
+            return Unauthorized();
+
+        var userId =
+            int.Parse(userIdClaim.Value);
+
+        var results =
+            await _repository
+                .GetByUserIdAsync(userId);
+
+        return Ok(results);
     }
 }

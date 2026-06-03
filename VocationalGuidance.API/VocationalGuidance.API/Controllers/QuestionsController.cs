@@ -40,6 +40,42 @@ public class QuestionsController
         return Ok(question);
     }
 
+    [HttpGet("categories")]
+    public async Task<IActionResult>
+    GetCategories()
+    {
+        var questions =
+            await _repository.GetAllAsync();
+
+        var categories =
+            questions
+            .Select(q => q.Category)
+            .Distinct()
+            .OrderBy(c => c)
+            .ToList();
+
+        return Ok(categories);
+    }
+
+    [HttpGet("category/{category}")]
+    public async Task<IActionResult>
+    GetByCategory(
+        string category)
+        {
+        var questions =
+            await _repository.GetAllAsync();
+
+        var result =
+            questions
+            .Where(q =>
+                q.Category
+                .ToLower() ==
+                category.ToLower())
+            .ToList();
+
+        return Ok(result);
+        }
+
     [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<IActionResult> Create(

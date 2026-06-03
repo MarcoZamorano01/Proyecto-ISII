@@ -35,18 +35,14 @@ public class AuthController
 
     [HttpPost("login")]
     public async Task<IActionResult>
-        Login(LoginDto dto)
+Login(LoginDto dto)
     {
-        var token =
+        var result =
             await _service.Login(dto);
 
-        if (token == null)
+        if (result == null)
             return Unauthorized();
 
-        return Ok(
-            new
-            {
-                token
-            });
+        return Ok(result);
     }
 }

@@ -1,0 +1,156 @@
+/* =========================
+   CONTAINER
+========================= */
+
+.dashboard-container {
+    padding: 20px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.dashboard-title {
+    font-size: 2rem;
+
+    color: white;
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+   STATS CARDS
+========================= */
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+/* =========================
+   CARD ESTILO MODERNO
+========================= */
+
+.card {
+    background:
+        rgba(17, 24, 39, 0.95);
+
+    border:
+        1px solid rgba(59, 130, 246, 0.15);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 20px rgba(59, 130, 246, 0.12);
+
+    transition: .3s;
+
+    backdrop-filter: blur(12px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 25px rgba(59, 130, 246, 0.25);
+}
+
+.card h3 {
+    color: #94a3b8;
+
+    font-size: 1rem;
+}
+
+.card h1 {
+    color: white;
+
+    font-size: 2rem;
+
+    margin-top: 10px;
+}
+
+/* =========================
+   CHART CARDS
+========================= */
+
+.chart-card {
+    margin-bottom: 30px;
+
+    padding: 20px;
+
+    background:
+        rgba(17, 24, 39, 0.95);
+
+    border:
+        1px solid rgba(59, 130, 246, 0.15);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.chart-card h2 {
+    color: white;
+
+    margin-bottom: 15px;
+
+    font-size: 1.3rem;
+}
+
+/* =========================
+   RECHART TOOLTIP
+========================= */
+
+.recharts-tooltip-wrapper {
+    background: #111827 !important;
+
+    border: 1px solid #3b82f6 !important;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   PIE COLORS FIX
+========================= */
+
+.recharts-pie-sector {
+    filter: drop-shadow(0 0 6px rgba(59,130,246,.3));
+}
+
+/* =========================
+   LOADING STATE
+========================= */
+
+.loading {
+    color: #94a3b8;
+
+    text-align: center;
+
+    margin-top: 50px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+
+    .card h1 {
+        font-size: 1.6rem;
+    }
+}

@@ -1,61 +1,207 @@
 import {
-    BrowserRouter,
     Routes,
-    Route
-} from "react-router-dom";
+    Route,
+    Navigate
+}
+    from "react-router-dom";
 
-import Navbar from "../components/Navbar";
+import LoginPage
+    from "../pages/auth/LoginPage";
 
-import Dashboard from "../pages/Dashboard";
-import Users from "../pages/Users";
-import Questions from "../pages/Questions";
-import Tests from "../pages/Tests";
-import Results from "../pages/Results";
-import VocationalTest from "../pages/VocationalTest";
+import RegisterPage
+    from "../pages/auth/RegisterPage";
+
+import DashboardPage
+    from "../pages/dashboard/DashboardPage";
+
+import UsersPage
+    from "../pages/users/UsersPage";
+
+import QuestionsPage
+    from "../pages/questions/QuestionsPage";
+
+import ResultsPage
+    from "../pages/results/ResultsPage";
+
+import ProfilePage
+    from "../pages/profile/ProfilePage";
+
+import VocationalTestPage
+    from "../pages/vocational/VocationalTestPage";
+
+import HomePage
+    from "../pages/student/HomePage";
+
+import MyResultsPage
+    from "../pages/student/studentResultsPage";
+
+import AIChatPage
+from "../pages/ai/AIChatPage";
+
+import DashboardLayout
+    from "../layouts/DashboardLayout";
+
+import ProtectedRoute
+    from "../components/layout/ProtectedRoute";
+
+import AdminRoute
+    from "../components/auth/AdminRoute";
+
+import StudentRoute
+    from "../components/auth/StudentRoute";
+
 
 function AppRoutes() {
 
     return (
 
-        <BrowserRouter>
+        <Routes>
 
-            <Navbar />
+            <Route
+                path="/"
+                element={
+                    <Navigate
+                        to="/login"
+                    />
+                }
+            />
 
-            <Routes>
+            <Route
+                path="/login"
+                element={<LoginPage />}
+            />
+
+            <Route
+                path="/register"
+                element={<RegisterPage />}
+            />
+
+            {/* ADMIN */}
+
+            <Route
+                element={
+                    <ProtectedRoute
+                        allowedRole="Admin"
+                    >
+                        <DashboardLayout />
+                    </ProtectedRoute>
+                }
+            >
 
                 <Route
-                    path="/"
-                    element={<Dashboard />}
+                    path="/dashboard"
+                    element={
+
+                        <AdminRoute>
+
+                            <DashboardPage />
+
+                        </AdminRoute>
+
+                    }
                 />
 
                 <Route
                     path="/users"
-                    element={<Users />}
+                    element={
+                        <AdminRoute>
+
+                            <UsersPage />
+
+                        </AdminRoute>
+                    }
                 />
 
                 <Route
                     path="/questions"
-                    element={<Questions />}
-                />
-
-                <Route
-                    path="/tests"
-                    element={<Tests />}
+                    element={
+                        <AdminRoute>
+                            <QuestionsPage />
+                        </AdminRoute>
+                    }
                 />
 
                 <Route
                     path="/results"
-                    element={<Results />}
+                    element={
+                        <AdminRoute>
+                            <ResultsPage />
+                        </AdminRoute>
+                    }
                 />
 
                 <Route
-                    path="/vocational-test"
-                    element={<VocationalTest />}
+                    path="/profile"
+                    element={
+                        <AdminRoute>
+                            <ProfilePage />
+                        </AdminRoute>}
                 />
 
-            </Routes>
+            </Route>
 
-        </BrowserRouter>
+            {/* STUDENT */}
+
+            <Route
+                element={
+                    <ProtectedRoute
+                        allowedRole="Student"
+                    >
+                        <DashboardLayout />
+                    </ProtectedRoute>
+                }
+            >
+
+                <Route
+                    path="/home"
+                    element={
+                        <StudentRoute>
+
+                            <HomePage />
+
+                        </StudentRoute>
+                    }
+                />
+
+                <Route
+                    path="/test"
+                    element={
+                        <StudentRoute>
+                            <VocationalTestPage />
+                        </StudentRoute>
+                    }
+                />
+
+                <Route
+                    path="/my-results"
+                    element={
+                        <StudentRoute>
+                            <MyResultsPage />
+                        </StudentRoute>
+                    }
+                />
+
+                <Route
+                    path="/advisor"
+                    element={
+                        <StudentRoute>
+                            <AIChatPage />
+                        </StudentRoute>
+                    }
+                />
+
+                <Route
+                    path="/profile"
+                    element={
+                        <StudentRoute>
+                            <ProfilePage />
+                        </StudentRoute>
+                    }
+                />
+
+            </Route>
+
+        </Routes>
 
     );
 }

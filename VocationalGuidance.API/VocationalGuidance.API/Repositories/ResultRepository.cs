@@ -19,9 +19,20 @@ public class ResultRepository
     }
 
     public async Task<List<TestResult>>
-        GetAllAsync()
+    GetAllAsync()
+    {
+        return await _context
+            .Results
+            .Include(x => x.User)
+            .ToListAsync();
+    }
+
+public async Task<List<TestResult>>
+    GetByUserIdAsync(int userId)
     {
         return await _context.Results
+            .Where(x => x.UserId == userId)
+            .OrderByDescending(x => x.CreatedAt)
             .ToListAsync();
     }
 

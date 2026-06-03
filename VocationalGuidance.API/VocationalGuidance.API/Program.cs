@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddScoped<VocationalAIService>();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition(

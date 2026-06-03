@@ -1,0 +1,230 @@
+/* =========================
+   CHAT CONTAINER
+========================= */
+
+.chat-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.chat-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chat-header h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+.chat-header p {
+    color: #94a3b8;
+}
+
+/* =========================
+   CHAT BOX
+========================= */
+
+.chat-box {
+    height: 600px;
+
+    overflow-y: auto;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(17, 24, 39, 0.95);
+
+    border:
+        1px solid rgba(59, 130, 246, 0.15);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 25px rgba(59, 130, 246, 0.12);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* scrollbar bonito */
+.chat-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 20px;
+}
+
+/* =========================
+   MENSAJES BASE
+========================= */
+
+.message {
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    max-width: 75%;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+
+    word-wrap: break-word;
+
+    animation: fadeIn .2s ease;
+}
+
+/* animación suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MENSAJE USUARIO
+========================= */
+
+.user {
+    background:
+        linear-gradient(135deg, #2563eb, #3b82f6);
+
+    color: white;
+
+    margin-left: auto;
+
+    border-bottom-right-radius: 5px;
+
+    box-shadow:
+        0 0 15px rgba(59, 130, 246, 0.25);
+}
+
+/* =========================
+   MENSAJE BOT
+========================= */
+
+.bot {
+    background: #1e293b;
+
+    color: #e2e8f0;
+
+    margin-right: auto;
+
+    border-bottom-left-radius: 5px;
+
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.chat-input {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.chat-input input {
+    flex: 1;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(59, 130, 246, 0.2);
+
+    background: #111827;
+
+    color: white;
+}
+
+.chat-input input:focus {
+    outline: none;
+
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+/* =========================
+   BOTON
+========================= */
+
+.chat-input button {
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.chat-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* =========================
+   MARKDOWN BOT
+========================= */
+
+.message.bot h1,
+.message.bot h2,
+.message.bot h3 {
+    color: white;
+    margin: 10px 0;
+}
+
+.message.bot p {
+    margin: 8px 0;
+    color: #e2e8f0;
+}
+
+.message.bot ul,
+.message.bot ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.message.bot strong {
+    color: #60a5fa;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.message.loading {
+    background: #1e293b;
+    color: #94a3b8;
+    font-style: italic;
+}

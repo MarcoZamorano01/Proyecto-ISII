@@ -1,0 +1,179 @@
+/* Fondo principal */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #0a0f1f,
+        #10182b,
+        #0d47a1
+    );
+
+    font-family: "Segoe UI", sans-serif;
+    padding: 20px;
+}
+
+/* Tarjeta */
+.login-form {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px;
+
+    background: rgba(15, 23, 42, 0.95);
+
+    border: 1px solid rgba(59, 130, 246, 0.3);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 25px rgba(37, 99, 235, 0.25),
+        0 0 60px rgba(37, 99, 235, 0.15);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    text-align: center;
+}
+
+/* Logo */
+.logo-circle {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #60a5fa
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+}
+
+/* Título */
+.login-form h2 {
+    color: white;
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+}
+
+/* Inputs */
+.login-form input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    background-color: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+
+    text-align: left;
+}
+
+.login-form input::placeholder {
+    color: #94a3b8;
+}
+
+.login-form input:focus {
+    outline: none;
+
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
+}
+
+/* Botones */
+.login-btn,
+.register-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* Botón login */
+.login-btn {
+    border: none;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color: white;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.6);
+}
+
+/* Botón registro */
+.register-btn {
+    border: 1px solid #3b82f6;
+
+    background: transparent;
+
+    color: #60a5fa;
+}
+
+.register-btn:hover {
+    background: rgba(59, 130, 246, 0.15);
+
+    color: white;
+
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px;
+    }
+
+    .login-form h2 {
+        font-size: 1.6rem;
+    }
+
+    .logo-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.7rem;
+    }
+}

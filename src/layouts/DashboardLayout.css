@@ -1,0 +1,299 @@
+.layout {
+
+    display: flex;
+
+    min-height: 100vh;
+
+    background: linear-gradient(135deg,
+            #0a0f1f,
+            #10182b,
+            #0d47a1);
+}
+
+.sidebar {
+
+    width: 260px;
+
+    background: #1f2937;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 20px;
+}
+
+.sidebar-header {
+
+    margin-bottom: 30px;
+}
+
+.sidebar nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.nav-item {
+
+    text-decoration: none;
+
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 8px;
+}
+
+.nav-item:hover {
+
+    background: #374151;
+}
+
+.nav-item.active {
+
+    background: #2563eb;
+}
+
+.logout-btn {
+
+    margin-top: auto;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.content {
+
+    flex: 1;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17,24,39,.98),
+            rgba(15,23,42,.98)
+        );
+
+    border-right:
+        1px solid rgba(59,130,246,.15);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        5px 0 25px rgba(0,0,0,.25);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.sidebar-header {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.sidebar-logo {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #60a5fa
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+
+    box-shadow:
+        0 0 20px rgba(59,130,246,.4);
+}
+
+.sidebar-header h2 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.sidebar-header span {
+    color: #94a3b8;
+    font-size: .9rem;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.sidebar-menu {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 20px 12px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.nav-item svg {
+    font-size: 18px;
+}
+
+.nav-item:hover {
+    background:
+        rgba(59,130,246,.12);
+
+    color: white;
+
+    transform: translateX(4px);
+}
+
+/* Item activo */
+
+.nav-item.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(37,99,235,.35),
+            rgba(59,130,246,.15)
+        );
+
+    color: white;
+
+    border-left:
+        4px solid #3b82f6;
+
+    box-shadow:
+        0 0 15px rgba(59,130,246,.2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.sidebar-footer {
+    padding: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+}
+
+.logout-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        rgba(239,68,68,.15);
+
+    color: #f87171;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.logout-btn:hover {
+    background:
+        rgba(239,68,68,.25);
+
+    color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar-header h2,
+    .sidebar-header span,
+    .nav-item span,
+    .logout-btn span {
+        display: none;
+    }
+
+    .sidebar-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-item {
+        justify-content: center;
+    }
+
+    .logout-btn {
+        justify-content: center;
+    }
+}
